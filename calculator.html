@@ -1,0 +1,194 @@
+<!doctype html>
+
+<html>
+        <head>
+                <title>gardna calculator</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta property="og:image" content="/static/img/ayl_link_thumbnail.png" /> 
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+        </head>
+
+        <style>
+            #output {
+                width: 100%; // 350px
+                height: 60px;
+                background-color: lightgrey;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 40px;
+                padding-top: 10px;
+                padding-left: 10px;
+                margin-left: 10px;
+                margin-bottom: 10px;
+            }
+
+            #buttons {
+                width: 300px;
+                display: grid;
+                grid-template-columns: auto auto auto auto;
+            }
+
+            .button {
+                text-align: center;
+                background-color: darkgrey;
+                padding-top: calc(75px / 2);
+                width: 75px;
+                height: 50px;
+                margin: 10px;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bold;
+                font-size: 20px;
+            }
+
+            .button.unused {
+                background-color: transparent;
+            }
+
+            .noselect {
+                -webkit-touch-callout: none; /* iOS Safari */
+                  -webkit-user-select: none; /* Safari */
+                   -khtml-user-select: none; /* Konqueror HTML */
+                     -moz-user-select: none; /* Old versions of Firefox */
+                      -ms-user-select: none; /* Internet Explorer/Edge */
+                          user-select: none; /* Non-prefixed version, currently
+                                                supported by Chrome, Edge, Opera and Firefox */
+            }
+        </style>
+
+        <body>
+                <h1>GARDNA CALCULATOR (warning: wide)</h1>
+
+                <div id="output">0</div>
+
+                <div id="buttons">
+                    <div class="button noselect" onclick="empty();">C</div>
+                    <div class="button noselect" onclick="emptyAll();">CA</div>
+                    <div class="button noselect" onclick="negative()">+/-</div>
+                    <div class="button noselect" onclick="del();">D</div>
+
+                    <div class="button noselect" onclick="number(1);">1</div>
+                    <div class="button noselect" onclick="number(2);">2</div>
+                    <div class="button noselect" onclick="number(3);">3</div>
+                    <div class="button noselect" onclick="operation('+');">+</div>
+
+                    <div class="button noselect" onclick="number(4);">4</div>
+                    <div class="button noselect" onclick="number(5);">5</div>
+                    <div class="button noselect" onclick="number(6);">6</div>
+                    <div class="button noselect" onclick="operation('-');">-</div>
+
+                    <div class="button noselect" onclick="number(7);">7</div>
+                    <div class="button noselect" onclick="number(8);">8</div>
+                    <div class="button noselect" onclick="number(9);">9</div>
+                    <div class="button noselect" onclick="operation('*');">*</div>
+
+                    <div class="button noselect" onclick="decimal()">.</div>
+                    <div class="button noselect" onclick="number(0);">0</div>
+                    <div class="button noselect" onclick="calculate();">=</div>
+                    <div class="button noselect" onclick="operation('/');">/</div>
+                </div>
+        </body>
+
+        <script>
+            var stack = [0];
+            var just_calculated = false;
+
+            function getCurrent() {
+                return parseFloat($('#output').text());
+            }
+
+            function del() {
+                if (isNaN(stack[stack.length - 1])) {
+                    stack = stack.slice(0, stack.length - 1);
+                }
+
+                var current = $('#output').text();
+                var updated = parseFloat(current.slice(0, current.length - 1));
+                if (isNaN(updated)) updated = 0;
+                stack[stack.length - 1] = updated;
+                $('#output').text(updated);
+
+                just_calculated = false;
+            }
+
+            function empty() {
+                if (!isNaN(stack[stack.length - 1])) {
+                    stack[stack.length - 1] = 0;
+                    $('#output').text(0);
+                }
+
+                just_calculated = false;
+            }
+
+            function emptyAll() {
+                stack = [0];
+                $('#output').text('0');
+
+                just_calculated = false;
+            }
+
+            function decimal() {
+                var current = $('#output').text();
+                var updated = current + '.';
+                $('#output').text(updated);
+
+                just_calculated = false;
+            }
+
+            function negative() {
+                if (!isNaN(stack[stack.length - 1])) {
+                    var updated = getCurrent() * -1;
+                    $('#output').text(updated);
+                    stack[stack.length - 1] = updated;
+                }
+
+                just_calculated = false;
+            }
+
+            function number(n) {
+                if (just_calculated) {
+                    $('#output').text(n);
+                    stack = [n];
+                    just_calculated = false;
+                }
+                else if (isNaN(stack[stack.length - 1])) {
+                    $('#output').text(n);
+                    stack.push(n);
+                }
+                else {
+                    var current = $('#output').text();
+                    var updated = parseFloat(current + n);
+                    $('#output').text(updated);
+                    stack[stack.length - 1] = updated;
+                }
+            }
+
+            function operation(o) {
+                if (isNaN(stack[stack.length - 1])) {
+                    stack[stack.length - 1] = o;
+                }
+                else {
+                    stack.push(o);
+                }
+
+                just_calculated = false;
+            }
+
+            function calculate() {
+                var value = stack[0];
+                if (stack.length > 2) {
+                    for (var i = 2; i < stack.length; i += 2) {
+                        var oper = stack[i - 1];
+                        var n = stack[i];
+                        // console.log(value, oper, n);
+                        if (oper == '+') value += n;
+                        if (oper == '-') value -= n;
+                        if (oper == '*') value *= n;
+                        if (oper == '/') value /= n;
+                    }
+                }
+
+                stack = [value];
+                $('#output').text(value);
+                just_calculated = true;
+            }
+        </script>
+</html>
