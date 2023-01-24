@@ -2,7 +2,7 @@
 @import "utils/gradient-color-at";
 @import "colors";
 
-* :not(ul, ol) {
+* {
     margin: 0;
     padding: 0;
 
@@ -14,7 +14,21 @@
     font-weight: normal;
 }
 
+ol {
+    padding: 0 1rem;
+}
+
+ul {
+    padding-top: 1rem;
+    list-style: none;
+
+    li::before {
+        content: "- ";
+    }
+}
+
 h1, h2, h3 {
+    margin-top: 1rem;
     color: $heading-color;
 }
 
@@ -22,9 +36,50 @@ h1 {
     text-transform: uppercase;
 }
 
-#content {
-    margin: 1rem;
-    max-width: 500px;
+h2 {
+    // color: $text-color;
+    text-decoration: underline;
+}
+
+em {
+    color: $text-color-faded;
+}
+
+p {
+    margin-top: 1rem;
+}
+
+.img1, .img2, .img3, .video {
+    margin-top: 1rem;
+    max-width: 100%;
+}
+
+img, video {
+    max-width: 100%;
+}
+
+.img2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+
+    div {
+        max-width: calc(50% - 0.5rem);
+    }
+}
+
+.content, .header {
+    padding: 1rem;
+    max-width: 650px;
+}
+
+.content {
+    padding-top: 0;
+}
+
+.content > *:not(h1) {
+    margin-left: 1rem;
 }
 
 a {

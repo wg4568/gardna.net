@@ -1,0 +1,69 @@
+current:
+  - title: Head Sailing Instructor
+    where: Shoreline Lake
+    when: Jun 2021 - Present
+    description: >-
+      As the supervisor to a team of sailing instructors, my primary
+      responsibility is to ensure the safe and smooth instruction of
+      our youth summer camp programs. During the off-season I work on
+      program development, staff training, and boat maintenence. On
+      the weekends I run our adult sailing program.
+  
+  - title: Commercial Drone Pilot
+    where: Made By Counter
+    when: Jun 2021 - Present
+    description: >-
+      Drones can drastically reduce the cost of services that would
+      be otherwise unaffordable. I use drone technology to provide
+      a variety of services such as automated mapping, surveying, and
+      inspections.
+  
+  - title: Photography Student Assistant
+    where: De Anza College
+    when: Jan 2023 - Present
+    description: >-
+      I work alongside photography professors at De Anza College to
+      provide assistance to students. This generally involves
+      answering Photoshop and Lightroom questions, as well as assisting
+      students in the darkroom where they process and print black and
+      white film.
+
+past:
+  - title: Sailing Instructor
+    where: Vasona Lake
+    when: Mar 2022 - Aug 2022 (Seasonal)
+    description: >-
+      During my time at Vasona Lake, I ran a handfull of small
+      parent/child learn to sail classes. In addition, I provided
+      powerboat and instructional training to junior instructors.
+
+  - title: Sailing Instructor and Lifeguard
+    where: BSA Camp Hi-Sierra
+    when: Jul 2022 (Seasonal)
+    description: >-
+      More sailing instruction! This time as a camp counselor for the
+      Hi-Sierra Scouting camp. In addition I occasionally assisted
+      their aquatics program as a lifeguard.
+  
+  - title: Information Security Engineer
+    where: Chegg Inc
+    when: Sep 2021 - Jun 2021
+    description: >-
+      I managed the bug bounty program through HackerOne. Lots of reading
+      source code and submitting tickets to appropriate teams. Also wrote
+      a few custom plugins for BurpSuite that scanned for specific bugs
+      frequent in our codebase.
+
+stuff:
+  - name: AreYouListening
+    url: https://ayl.gardna.net/
+
+  - name: madebycounter.com
+    url: https://madebycounter.com/
+
+certs:
+- name: US Sailing Level 1 Instructor
+- name: American Red Cross Lifeguard
+- name: American Red Cross Standard First Aid, CPR and AED
+- name: FAA Commercial Drone Pilot (Part 107)
+- name: HAM Radio Technician Class

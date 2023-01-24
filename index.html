@@ -1,0 +1,52 @@
+---
+layout: default
+title: about
+---
+
+<h1>What I'm Doing</h1>
+
+<div class="resume">
+    {% for item in site.data.about.current %}
+    <div>
+        <h2>{{ item.title }}</h2>
+        <em>{{ item.where }}, {{ item.when }}</em>
+        <p>{{ item.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>What I've Done</h1>
+
+<div class="resume">
+    {% for item in site.data.about.past %}
+    <div>
+        <h2>{{ item.title }}</h2>
+        <em>{{ item.where }}, {{ item.when }}</em>
+        <p>{{ item.description }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<h1>Some Stuff I've Made</h1>
+
+<div class="stuffivemade">
+    <ul>
+    {% for item in site.data.about.stuff %}
+        <li>
+            {{ item.name }} <a href="{{ item.url }}">{{ item.url }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+<div class="certifications">
+    <h1>Certifications and Licenses</h1>
+    
+    <ul>
+        {% for item in site.data.about.certs %}
+        <li>
+            {{ item.name }}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
