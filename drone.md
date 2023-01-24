@@ -1,6 +1,7 @@
 ---
 layout: default
 title: drone
+permalink: /drone/
 ---
 
 # Drone Services

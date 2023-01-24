@@ -1,6 +1,7 @@
 ---
 layout: default
 title: sailing
+permalink: /sailing/
 ---
 
 # Sailing
