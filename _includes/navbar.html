@@ -1,0 +1,6 @@
+<div class="navbar">
+    {% for nav in site.data.navbar %}
+    [<a href="{{ nav.url }}">{{ nav.name }}</a>]
+    {% endfor %}
+</div>
+<br/>

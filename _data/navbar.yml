@@ -1,0 +1,14 @@
+- name: about
+  url: /
+
+- name: drone
+  url: /drone
+
+- name: sailing
+  url: /sailing
+
+- name: photo
+  url: /photo
+
+- name: contact
+  url: /contact

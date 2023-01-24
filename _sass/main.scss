@@ -1,0 +1,58 @@
+@import "syntax/default";
+@import "utils/gradient-color-at";
+@import "colors";
+
+* :not(ul, ol) {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Consolas", monospace;
+
+    background-color: $background-color;
+    color: $text-color;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+h1, h2, h3 {
+    color: $heading-color;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+#content {
+    margin: 1rem;
+    max-width: 500px;
+}
+
+a {
+    color: $link-color;
+}
+
+.banner {
+    #_0 {
+        color: gradient-color-at($banner-color-top, $banner-color-bottom, 0);
+    }
+    
+    #_1 {
+        color: gradient-color-at($banner-color-top, $banner-color-bottom, 0.2);
+    }
+
+    #_2 {
+        color: gradient-color-at($banner-color-top, $banner-color-bottom, 0.4);
+    }
+
+    #_3 {
+        color: gradient-color-at($banner-color-top, $banner-color-bottom, 0.6);
+    }
+
+    #_4 {
+        color: gradient-color-at($banner-color-top, $banner-color-bottom, 0.8);
+    }
+
+    #_5 {
+        color: gradient-color-at($banner-color-top, $banner-color-bottom, 1);
+    }
+}

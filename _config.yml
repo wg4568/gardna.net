@@ -1,0 +1,13 @@
+title: gardna.net
+description: gardna.net homepage
+baseurl: "/"
+url: "https://gardna.net"
+
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - .gitignore
+  - .git/
